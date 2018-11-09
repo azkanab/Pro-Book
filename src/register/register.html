@@ -1,0 +1,319 @@
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
+<link rel="stylesheet" href="register.css">
+<title>Pro-Book | Register</title>
+
+<form method="POST" action="register.php" onsubmit="return validate_form()">
+	<table border = "4" background = "hehehehe.jpg" class='position-center'>
+		<tr>
+			<td colspan="2" align="center" class="top-row"> 
+				<p class="judul"> REGISTER </p>
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="name"> Name </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input type = "text" name = "name" id = "name" maxlength = "60" size = "26" placeholder="input name">
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="username"> Username </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input type = "text" name = "username" id = "username" maxlength = "40" size = "20" placeholder="input username">
+				<span id="check"></span>
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="email"> Email </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input type = "text" name = "email" id = "email" maxlength = "30" size = "20" placeholder="input email"> 
+				<span id="check2"></span>
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="password"> Password </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input type = "password" name = "password" id = "password" maxlength = "40" size = "26" placeholder="input password (min. 5 char)"> 
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="confirm"> Confirm Password </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input type = "password" name = "confirm" id = "confirm" maxlength = "40" size = "26" placeholder="confirm password"> 
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" valign="top" class="no-border"> 
+				<p class="font-and-margin"> <label for ="address"> Address </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<textarea rows = "3" cols = "20" name = "address" id = "address" placeholder="input address"> </textarea> 
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="phone"> Phone Number </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input type = "text" name = "phone" id = "phone" maxlength = "60" size = "26" placeholder="input phone number"> 
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border">
+				<a href="../login/login.html"> 
+					<p class="ref-button"> <U> Already have an account? </U> </p> 
+				</a> 
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center" class="bottom-row"> 
+				<input class="submit-button" type = "submit" id = "register" value = "REGISTER"/>
+			</td>
+		</tr>
+	</table>
+</form>
+
+			
+
+<script>
+	function validateEmail(email) {
+	    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    return re.test(String(email).toLowerCase());
+	}
+
+	function validate_username(x)
+	{
+		console.log("asdga");
+		if (!x)
+		{
+			document.getElementById('username').style.border = "2pt solid red";
+			return false;
+		}
+		else
+		{
+			document.getElementById('username').style.border = "1pt solid grey";
+			return true;
+		}
+	}
+
+	function validate_email(x)
+	{
+		if (!x)
+		{
+			document.getElementById('email').style.border = "2pt solid red";
+			return false;
+		}
+		else
+		{
+			document.getElementById('email').style.border = "1pt solid grey";
+			return true;	
+		}
+	}
+
+	var validate1 = null;
+	let username = document.getElementById("username");
+	username.addEventListener("focusout", function()
+	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) {
+		  	console.log(this.responseText);
+
+	    	let check = document.getElementById("check");
+		    if (this.responseText === "ADA")
+		    {
+		    	check.innerHTML='✘';
+		    	check.style.color = '#F26600';
+		    	validate1 = false;
+		    }
+		    else if (this.responseText === "TAKADA")
+		    {
+		    	check.innerHTML='✔';
+		    	check.style.color = '#F26600';
+		    	validate1 = true;
+			}
+
+			if (!username.value)
+			{
+				check.innerHTML='';
+				validate1 = false;
+			}
+		  }
+		};
+		xhttp.open("GET", "checkusername.php?username="+username.value, true);
+		xhttp.send();
+	});
+
+ 	var validate2 = null;
+	let email = document.getElementById("email");
+	email.addEventListener("focusout", function()
+	{
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) {
+		  	console.log(this.responseText);
+
+	    	let check2 = document.getElementById("check2");
+		    if ((this.responseText === "ADA") || (!validateEmail(email.value)))
+		    {
+		    	check2.innerHTML='✘';
+		    	check2.style.color = '#F26600';
+		    	validate2 = false;
+		    }
+		    else if (this.responseText === "TAKADA")
+		    {
+		    	check2.innerHTML='✔';
+		    	check2.style.color = '#F26600';
+		    	validate2 = true;
+			}
+
+			if (!email.value)
+			{
+				check2.innerHTML='';
+				validate = false;
+			}
+		  }
+		};
+		xhttp.open("GET", "checkemail.php?email="+email.value, true);
+		xhttp.send();
+
+	});
+
+	function validate_name()
+	{
+        var name = document.getElementById('name').value;
+        if (name.length === 0) {
+            document.getElementById('name').style.border = "2pt solid red";
+            return false;
+        }else if (name.length > 50){
+            document.getElementById('name').style.border = "2pt solid red";
+            return false;
+        }else{
+            document.getElementById('name').style.border = "1pt solid grey";
+            return true;
+        }
+    }
+
+    function validate_password()
+    {
+        var password = document.getElementById('password').value;
+        if (password.length === 0){
+            document.getElementById('password').style.border = "2pt solid red";
+            return false;
+        }else if (password.length < 5 ){
+            document.getElementById('password').style.border = "2pt solid red";
+            return false;
+        }else{
+        	document.getElementById('password').style.border = "1pt solid grey";
+            return true;
+        }
+    }
+
+    function validate_confirm()
+    {
+        var confpass = document.getElementById('confirm').value;
+        var password = document.getElementById('password').value;
+        if (confpass !== password){
+            document.getElementById('confirm').style.border = "2pt solid red";
+            return false;
+        }else if (confpass.length === 0){
+            document.getElementById('confirm').style.border = "2pt solid red";
+            return false;
+        }else{
+        	document.getElementById('confirm').style.border = "1pt solid grey";
+            return true;
+        }
+    }
+
+    function validate_address()
+    {
+        var address = document.getElementById('address').value;
+        if (address.length === 0){
+            document.getElementById('address').style.border = "2pt solid red";
+            return false;
+        }else{
+        	document.getElementById('address').style.border = "1pt solid grey";
+            return true;
+        }
+    }
+
+    function validate_phone()
+    {
+        var phone = document.getElementById('phone').value;
+        if (phone.length === 0){
+            document.getElementById('phone').style.border = "2pt solid red";
+            return false;
+        }else if (phone.length < 9){
+            document.getElementById('phone').style.border = "2pt solid red";
+            return false;
+        }else if (phone.length > 12){
+            document.getElementById('phone').style.border = "2pt solid red";
+            return false;
+        }else{
+        	document.getElementById('phone').style.border = "1pt solid grey";
+            return true;
+        }
+    }
+
+    function validate_form()
+    {
+        a = validate_name();
+        b = validate_password();
+        c = validate_address();
+        d = validate_confirm();
+        e = validate_phone();
+        f = validate_username(validate1);
+        g = validate_email(validate2);
+
+        if (!a || !b || !c || !d || !e || !f || !g)
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+    }
+
+ //    let submit = document.getElementById("register");
+	// submit.addEventListener("click", function()
+	// {
+	// 	if (validate_form())
+	// 	{
+	// 		alert("Registered Successfully!");	
+	// 	}
+	// 	else
+	// 	{
+	// 		alert("Salah inputnya goblok");
+	// 	}
+	// });
+
+</script>

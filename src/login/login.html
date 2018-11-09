@@ -1,0 +1,122 @@
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
+<link rel="stylesheet" href="login.css">
+<title>Pro-Book | Login</title>
+
+<form method="POST" action="login.php" onsubmit="return validate_form();">
+	<table border = "4" background = "hehehehe.jpg" class='position-center'>
+		<tr>
+			<td colspan="2" align="center" class="no-border"> 
+				<p class="judul"> LOGIN </p>
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="username"> Username </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input class = "font" type = "text" name = "username" id = "username" maxlength = "40" size = "26" value = ""> 
+			</td>
+		</tr>
+
+		<tr>
+			<td align = "right" class="no-border"> 
+				<p class="font-and-margin"> <label for ="password"> Password </label> </p>
+			</td>
+			
+			<td class="no-border"> 
+				<input class = "font" type = "password" name = "password" id = "password" maxlength = "60" size = "26" value = ""> 
+			</td>
+		</tr>
+
+		<tr>
+			<td class="no-border">
+				<a href="../register/register.html"> 
+					<p class = "ref-button"> <U> Don't have an account? </U> </p> </p>
+				</a> 
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center" class="no-border"> 
+				<input class="submit-button" type = "submit" id = "login" value = "LOGIN"/> 
+			</td>
+		</tr>
+	</table>
+</form>
+
+<script>
+	function validate_username(x)
+	{
+		if (!x)
+		{
+			document.getElementById('username').style.border = "2pt solid red";
+			return false;
+		}
+		else
+		{
+			document.getElementById('username').style.border = "1pt solid grey";
+			return true
+		}
+	}
+
+    function validate_password()
+    {
+        var password = document.getElementById('password').value;
+        if (password.length === 0){
+            document.getElementById('password').style.border = "2pt solid red";
+            return false;
+        }else if (password.length < 5 ){
+            document.getElementById('password').style.border = "2pt solid red";
+            return false;
+        }else{
+        	document.getElementById('password').style.border = "1pt solid grey";
+            return true;
+        }
+    }
+
+    var validate1 = null;
+	let username = document.getElementById("username");
+	username.addEventListener("focusout", function(){
+		if (!username.value){
+			validate1 = false;
+			username.style.border = "2pt solid red";
+			username.placeholder = "username required!"
+		} else {
+			validate1 = true;
+			username.style.border = "";
+			username.placeholder = "";
+		}
+	});
+
+	let password = document.getElementById("password");
+	password.addEventListener("focusout", function(){
+		if (!password.value){
+			validate2 = false;
+			password.style.border = "2pt solid red";
+			password.placeholder = "password required!"
+		} else {
+			validate2 = true;
+			password.style.border = "";
+		}
+	});
+
+
+    function validate_form()
+    {
+        f = validate_username(validate1);
+        g = validate_password();
+
+        if (!f || !g)
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+    }
+
+</script>

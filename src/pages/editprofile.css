@@ -1,0 +1,186 @@
+*{
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+	/*border: 1px solid red;*/
+	/*padding: 0;*/
+}
+
+#submit:disabled {
+	background-color: grey;
+}
+
+.header{
+
+}
+.edit-profile {
+	color: #FF6029;
+	font-size: 70px;
+	margin-top: 26vh;
+	margin-left: 40px;
+}
+
+.tablestyle{
+	width:98%;
+}
+
+.tdstyle{
+	width:225px;
+}
+
+.labelstyle{
+	padding-left:20px;
+	width:30%;
+	display:flex;
+	justify-content: flex-end;
+}
+.width100{
+	width:80%;
+	padding-right:40px;
+}
+.edit-table{
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 40px;
+	margin-bottom: 100px;"
+	width:70%;
+}
+.profpic{
+	width:200px;
+	height:200px;
+	object-fit: cover;
+	border-style: solid;
+}
+
+.data-font{
+    font-size: 20px;
+    padding-bottom: 13px;
+    padding-top:13px;
+    vertical-align: top;
+}
+
+.user-data{
+	padding-top: 30px;
+}
+
+.inputfile{
+	position:relative;
+}
+
+.row-style{
+	padding-top: 25px;
+}
+.data-c2{
+	padding-left: 25px;
+}
+
+.data-input1{
+	width:110%;
+	height: 23px;
+	padding-left:5px;
+	font-size:20px;
+	border: 0.5px;
+	border-style:solid;
+	border-color:#808080;
+	outline: none;
+}
+
+.data-input{
+	width:100%;
+	height:23px;
+	padding-left:5px;
+	font-size:20px;
+	border: 0.5px;
+	border-style:solid;
+	border-color:#808080;
+	outline: none;
+}
+
+
+.text-address{
+	height:100px;
+	width: 100%;
+	font-size: 20px;
+	border-color: #808080;
+	resize: none;
+}
+
+
+.button-footer{
+	display:flex;
+	padding-top: 40px;
+}
+
+.button-flex{
+	flex: 8;
+	justify-content: flex-start;
+	width: 50%;
+}
+
+.unlined{
+	text-decoration:none;
+}
+.button-style{
+	width:64px;
+	height: 26px;
+
+	border-style: solid;
+	background-color: #ffffff;
+    border-radius: 5px;
+    border-color: #d9534f;
+    color: #d9534f;
+    font-size: 25px;
+    font-style: normal;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.flex-button{
+	flex: 1;
+	 justify-content: flex-end; 
+	 width:30%;
+}
+
+.flexdisplay{
+	display:flex;
+}
+
+.button-style2{
+	width:130px;
+	height: 40px;
+
+	background-color: #0094cc;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 25px;
+    font-style: normal;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.browse-button{
+	width:100px; 
+	display: inline-block;
+	border-radius: 3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#808080;
+	background-color: #e6e6e6;
+    cursor: pointer;
+    margin-top: -2.2px;
+	margin-left: 80px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+	
+}
+
